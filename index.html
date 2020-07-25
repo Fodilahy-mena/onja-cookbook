@@ -4,13 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekend project: Cookbook</title>
+    <style>
+        h1 {
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .form{
+        display: grid;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        }
+        p {
+            font-size: 20px;
+            font-family: sans-serif;
+            text-decoration: underline;
+        }
+        .input-form {
+        padding: 8px;
+        width: 180px;
+        border-radius: 5px;
+        border: 1px solid rgb(119, 90, 247);
+        font-size: 16px;
+        width: 262px;
+        font-size: 18px;
+        margin-top: 1rem;
+        }
+        .select-form {
+        height: 40px;
+        font-size: 16px;
+        border: 1px solid rgb(247, 90, 213);
+        font-size: 18px;
+        }
+        span {
+        padding: 8px;
+        width: 180px;
+        border-radius: 5px;
+        border: 1px solid white;
+        font-size: 16px;
+        width: 262px;
+        font-size: 18px;
+        font-family: sans-serif;
+        margin-block-end: 1rem;
+        background-color: black;
+        }
+        .ingredient_wraper, .step_wraper {
+        display: grid;
+        grid-gap: 1px;
+        background-color: darkcyan;
+        color: white;
+        }
+
+        button {
+        padding: 10px 15px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline;
+        transition: all 0.2s;
+        margin-top: 1rem;
+        color: white;
+        }
+        .btn_add--ingredient,.btn_add--step {
+            background-color: blue;
+            border: 2px solid rgb(244, 248, 5);
+        }
+        .btn_submit {
+            background-color: red;
+            border: 2px solid rgb(13, 14, 13);
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Cookbook</h1>
     </header>
     <div>
-        <form action="">
+        <form action="" class="form">
             <p>What's the recipe name?</p>
             <input
                 class="input-form"
@@ -20,16 +94,20 @@
                 placeholder="Enter your recipe name here"
                 required
             />
+
             <p>Picture of the result (URL)</p>
-            <input type="url" id="recipe_url" name="recipe_url"  placeholder="https://bit.ly/2zxyiKI" required>
+            <input type="url" class="input-form" id="recipe_url" name="recipe_url"  placeholder="https://bit.ly/2zxyiKI" required>
+
             <p>Who's the cook?</p>
-            <input type="text" id="recipe_cook" name="recipe_cook" required>
+            <input type="text" class="input-form" id="recipe_cook" name="recipe_cook" required>
+
             <p>What's the difficulty?</p>
             <select name="difficulty" class="select-form" required>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
             </select>
+
             <p>How much time does it take?</p>
             <select name="duration" class="select-form" required>
                 <option value="less15">Less than 15 minutes</option>
@@ -39,15 +117,24 @@
                 <option value="60min">60 minutes</option>
                 <option value="more1h">More than an hour</option>
             </select>
+
             <p>Ingredients</p>
-            <input type="text" id="recipe_ingredient" name="recipe_ingredient" required>
+            <div class="ingredient_wraper">
+
+            </div>
+            <input type="text" class="input-form ingredient" id="recipe_ingredient" name="recipe_ingredient" required>
             <button class="btn_add--ingredient">Add a new ingredient to the list</button>
+
             <p>Steps</p>
-            <input type="text" id="recipe_step" name="recipe_step" required>
+            <div class="step_wraper">
+
+            </div>
+            <input type="text" class="input-form step" id="recipe_step" name="recipe_step" required>
             <button class="btn_add--step">Add a new ingredient to the list</button>
 
             <button class="btn_submit">Submit</button>
         </form>
     </div>
+    <script src="./cookbook.js"></script>
 </body>
 </html>
