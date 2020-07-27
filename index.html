@@ -40,7 +40,7 @@
         border: 1px solid rgb(247, 90, 213);
         font-size: 18px;
         }
-        span {
+        li {
         padding: 8px;
         width: 180px;
         border-radius: 5px;
@@ -51,12 +51,14 @@
         font-family: sans-serif;
         margin-block-end: 1rem;
         background-color: black;
+        list-style: none;
         }
         .ingredient_wraper, .step_wraper {
         display: grid;
         grid-gap: 1px;
         background-color: darkcyan;
         color: white;
+        padding-left: 0;
         }
 
         button {
@@ -96,7 +98,7 @@
             />
 
             <p>Picture of the result (URL)</p>
-            <input type="url" class="input-form" id="recipe_url" name="recipe_url"  placeholder="https://bit.ly/2zxyiKI" required>
+            <input type="file" class="input-form" id="recipe_url" name="recipe_url" accept="image/png, image/jpeg">
 
             <p>Who's the cook?</p>
             <input type="text" class="input-form" id="recipe_cook" name="recipe_cook" required>
@@ -119,16 +121,18 @@
             </select>
 
             <p>Ingredients</p>
-            <div class="ingredient_wraper">
-
-            </div>
+            <ul class="ingredient_wraper">
+                <!-- <li class="ingredient_list">
+                    <span class="ingredient_value" name="ingredient">Papa</span>
+                </li> -->
+            </ul>
             <input type="text" class="input-form ingredient" id="recipe_ingredient" name="recipe_ingredient" required>
             <button class="btn_add--ingredient">Add a new ingredient to the list</button>
 
             <p>Steps</p>
-            <div class="step_wraper">
-
-            </div>
+            <ul class="step_wraper">
+                <!-- <li class="step_list"><span id="step${number2}" class="step_value" name="step${number2}">Step</span></li> -->
+            </ul>
             <input type="text" class="input-form step" id="recipe_step" name="recipe_step" required>
             <button class="btn_add--step">Add a new ingredient to the list</button>
 

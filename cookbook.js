@@ -1,3 +1,26 @@
+// **********1
+// Create html
+
+// **********2
+// Style with css
+
+// **********3
+// Select the <select> element of difficulty
+// Select the <select> element of duration
+// Select the <select> element of ingredients
+// Select the <select> element of steps
+
+// **********4 With ingredient & Steps
+// Access the outer element that will wrap the new input from js
+// Access the button element that will be cliced with event listener to add steps or ingredients
+
+// **********5
+// Create a function handling for those two
+// Add an event listener for each button to add the handle click
+
+
+
+
 // Accsss input elements
 const ingredientInput = document.querySelector('#recipe_ingredient');
 const stepInput = document.querySelector('#recipe_step');
@@ -18,15 +41,17 @@ const ingredientBtn = document.querySelector('.btn_add--ingredient');
 const stepBtn = document.querySelector('.btn_add--step');
 
 const submitBtn = document.querySelector('.btn_submit');
+const ingredientListElement = document.querySelector('.ingredient_list');
 
 // Add some ingredients
 
 const handleNewIngredient = e => {
     e.preventDefault();
-    const span1 = `
-    <span class="ingredient_value">${ingredientInput.value}</span>
+    const number = wraperIngredient.children.length + 1;
+    const list1 = `
+    <li class="ingredient_list"><span id="ingredient${number}" class="ingredient_value" name="ingredient${number}">${number}. ${ingredientInput.value}</span></li>
     `;
-    wraperIngredient.innerHTML += span1;
+    wraperIngredient.insertAdjacentHTML('beforeend', list1);
     
 }
 
@@ -34,10 +59,16 @@ const handleNewIngredient = e => {
 
 const handleNewStep = e => {
     e.preventDefault();
-    const span2 = `
-    <span class="step_value">${stepInput.value}</span>
+    const number2 = wraperStep.children.length + 1;
+    const list2 = `
+    <li class="step_list"><span id="step${number2}" class="step_value" name="step${number2}">${number2}. ${stepInput.value}</span></li>
     `;
-    wraperStep.innerHTML += span2;
+    wraperStep.insertAdjacentHTML('beforeend', list2);
+    
+}
+
+const handleSubmit = e => {
+    e.preventDefault();
     
 }
 
