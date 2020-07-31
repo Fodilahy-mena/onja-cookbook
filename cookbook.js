@@ -42,6 +42,7 @@ const stepBtn = document.querySelector('.btn_add--step');
 
 const submitBtn = document.querySelector('.btn_submit');
 const ingredientListElement = document.querySelector('.ingredient_list');
+const recipes = [];
 
 // Add some ingredients
 
@@ -69,33 +70,39 @@ const handleNewStep = e => {
 
 const handleSubmit = e => {
     e.preventDefault();
+    console.log('submit', e);
+	const form = e.currentTarget;
+	const { name, url, cook, difficulty, duration } = form;
+	// how can I grab back the ingredients and the input?
+	const ingredients = [];
+	for (let i = 0; i < wraperIngredient.children.length; i++) {
+		ingredients.push(wraperIngredient.children[i].children[0].value);
+    }
+
+console.log(ingredients);
+
+const steps = [];
+	for (stepChildren of wraperStep.children) {
+		steps.push(stepChildren.children[0].value);
+	}
+    console.log(steps);
     
+
+const myArrayObj = {
+        name: name.value,
+        url: recipeUrl.value,
+        cook: recipeCook.value,
+        difficulty: difficulty.value,
+        duration: duration.value,
+        ingredients:ingredients.value,
+        steps: steps.value,
+
+};
+console.log(myArrayObj);
+	recipes.push(myArrayObj);
 }
 
 ingredientBtn.addEventListener('click', handleNewIngredient);
 stepBtn.addEventListener('click', handleNewStep);
 
-submitBtn.addEventListener('click', function() {
-    const valIngedient = document.querySelectorAll('.ingredient_value');
-    for (let i = 0; i < valIngedient.length; i++) {
-        console.log(valIngedient.value);
-    }
-    
-    
-});
-
-let ingredientList = () => {
-
-}
-
-let myArrayObj = [
-    {
-        name: `${recipeName.value}`,
-        url: `${recipeUrl.value}`,
-        cook: `${recipeCook.value}`,
-        difficulty: `${difficutySelectInput.value}`,
-        duration: `${durationSelectInput.value}`,
-        
-
-    }
-];
+submitBtn.addEventListener('click', handleSubmit);
